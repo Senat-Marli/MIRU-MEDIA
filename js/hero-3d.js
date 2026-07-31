@@ -2,13 +2,11 @@
   const canvas = document.getElementById('hero-canvas');
   if(!canvas) return;
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x030303);
-  scene.fog = new THREE.FogExp2(0x030303, 0.035);
-
+  
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
   camera.position.set(0,0,9);
 
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 
