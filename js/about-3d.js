@@ -1,8 +1,10 @@
-(function(){
+
+ (function(){
   const canvas = document.getElementById('about-canvas');
   if(!canvas) return;
+
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x050505);
+  scene.background = new THREE.Color(0xffffff);
 
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
   camera.position.set(0,0,7);
@@ -54,8 +56,29 @@
     gsap.registerPlugin(ScrollTrigger);
     gsap.from(crane.position, {x:-3, duration:1.4, ease:"power3.out",
       scrollTrigger:{trigger:"#about", start:"top 80%", toggleActions:"play none none reverse"}});
-    gsap.from(".about-title, .about-text, .about-stats", {y:40, opacity:0, duration:0.9, stagger:0.15, ease:"power2.out",
+    gsap.from(".about-text-wrap h2, .about-text-wrap p", {y:40, opacity:0, duration:0.9, stagger:0.15, ease:"power2.out",
       scrollTrigger:{trigger:"#about", start:"top 75%", toggleActions:"play none none reverse"}});
+
+    gsap.from(".services-title, .services-quote-mark, .services-quote, .services-left .btn", {
+      x:-40, opacity:0, duration:1, stagger:0.12, ease:"power3.out",
+      scrollTrigger:{trigger:"#services", start:"top 75%", toggleActions:"play none none reverse"}
+    });
+    gsap.from(".service-category", {
+      x:40, opacity:0, duration:0.9, stagger:0.15, ease:"power2.out",
+      scrollTrigger:{trigger:"#services", start:"top 70%", toggleActions:"play none none reverse"}
+    });
+    gsap.from(".cases-title, .cases-filters", {
+      y:40, opacity:0, duration:1, stagger:0.15, ease:"power3.out",
+      scrollTrigger:{trigger:"#cases", start:"top 80%", toggleActions:"play none none reverse"}
+    });
+    gsap.from(".case-card", {
+      y:60, opacity:0, duration:0.8, stagger:0.1, ease:"power2.out",
+      scrollTrigger:{trigger:".cases-grid", start:"top 85%", toggleActions:"play none none reverse"}
+    });
+    gsap.from(".process-header, .process-item", {
+      y:40, opacity:0, duration:0.9, stagger:0.12, ease:"power2.out",
+      scrollTrigger:{trigger:"#process", start:"top 80%", toggleActions:"play none none reverse"}
+    });
   }
 
   window.addEventListener('resize',()=>{
@@ -63,4 +86,8 @@
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth,canvas.clientHeight);
   });
-})();
+})();'''
+
+with open('/mnt/agents/output/about-3d.js', 'w', encoding='utf-8') as f:
+    f.write(about_3d_js)
+print("js/about-3d.js сохранён")
