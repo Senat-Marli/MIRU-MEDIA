@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRU MEDIA — IT & 3D Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-glass">
+      <div class="hero-badge">IT & 3D Studio</div>
+      <h1 class="hero-logo">MIRU MEDIA</h1>
+      <p class="hero-subtitle">
+        Создаём цифровые продукты, моушен-дизайн и 3D-визуализацию.<br>
+        От идеи до финального рендера — полный цикл production.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Обсудить проект</a>
+        <a href="#services" class="btn btn-outline">Наши услуги</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- О НАС -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual">
+          <canvas id="about-canvas"></canvas>
+        </div>
+        <div>
+          <div class="section-header">
+            <div class="section-label">О студии</div>
+            <h2 class="section-title">Технологии, дизайн<br>и визуальная магия</h2>
+          </div>
+          <p class="about-text">
+            Мы — команда разработчиков, 3D-художников и моушен-дизайнеров. Строим сайты, приложения, создаём анимацию и CGI для брендов, которые хотят выделяться.
+          </p>
+          <p class="about-text">
+            Каждый проект — это оригами: точные складки кода, чистые линии дизайна и движение, которое оживляет образ.
+          </p>
+          <div class="about-stats">
+            <div>
+              <div class="stat-num">50+</div>
+              <div class="stat-label">Проектов</div>
+            </div>
+            <div>
+              <div class="stat-num">8</div>
+              <div class="stat-label">Лет опыта</div>
+            </div>
+            <div>
+              <div class="stat-num">3D</div>
+              <div class="stat-label">Визуализация</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ — с видео в каждой карточке -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Услуги</div>
+        <h2 class="section-title">Полный цикл<br>цифрового production</h2>
+      </div>
+      <div class="services-grid">
+
+        <!-- УСЛУГА 1: Веб-разработка -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-web.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">Веб</div>
+          </div>
+          <div class="service-body">
+            <h3>Веб-разработка</h3>
+            <p>Сайты, веб-приложения, админ-панели и сложные интерактивные интерфейсы на современном стеке.</p>
+          </div>
+        </div>
+
+        <!-- УСЛУГА 2: Моушен-дизайн -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-motion.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">Motion</div>
+          </div>
+          <div class="service-body">
+            <h3>Моушен-дизайн</h3>
+            <p>2D и 3D анимация, рекламные ролики, эксплейнеры, анимация UI и графические пакеты.</p>
+          </div>
+        </div>
+
+        <!-- УСЛУГА 3: 3D-визуализация -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-3d.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">3D</div>
+          </div>
+          <div class="service-body">
+            <h3>3D-визуализация</h3>
+            <p>Продуктовая визуализация, статичные рендеры, 3D-модели для маркетинга и lookdev.</p>
+          </div>
+        </div>
+
+        <!-- УСЛУГА 4: Мобильная разработка -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-mobile.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">App</div>
+          </div>
+          <div class="service-body">
+            <h3>Мобильная разработка</h3>
+            <p>Нативные и кроссплатформенные приложения с плавной анимацией и отзывчивым UI.</p>
+          </div>
+        </div>
+
+        <!-- УСЛУГА 5: UI/UX Дизайн -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-uiux.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">Design</div>
+          </div>
+          <div class="service-body">
+            <h3>UI/UX Дизайн</h3>
+            <p>Продуманные интерфейсы, прототипирование, дизайн-системы и гайдлайны для продуктов.</p>
+          </div>
+        </div>
+
+        <!-- УСЛУГА 6: AI -->
+        <div class="service-card">
+          <div class="service-video-wrap">
+            <video autoplay loop muted playsinline>
+              <source src="videos/service-ai.mp4" type="video/mp4">
+            </video>
+            <div class="service-video-tag">AI</div>
+          </div>
+          <div class="service-body">
+            <h3>AI & Автоматизация</h3>
+            <p>Интеграция нейросетей, генеративный дизайн, автоматизация production-процессов.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОРТФОЛИО / КЕЙСЫ (общие работы) -->
+  <section class="cases" id="cases">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Портфолио</div>
+        <h2 class="section-title">Избранные<br>работы</h2>
+      </div>
+      <div class="cases-grid">
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work1.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">3D Анимация</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work2.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">Веб-платформа</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work3.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">Моушен</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work4.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">CGI</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work5.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">ИИ Дизайн</div>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <video autoplay loop muted playsinline>
+            <source src="videos/work6.mp4" type="video/mp4">
+          </video>
+          <div class="case-info">
+            <div class="case-title">Название проекта</div>
+            <div class="case-cat">2D Анимация</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРОЦЕСС -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Процесс</div>
+        <h2 class="section-title">Как мы<br>работаем</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div>
+            <div class="process-name">Бриф и референсы</div>
+            <div class="process-desc">Погружаемся в задачу, изучаем аудиторию и конкурентов</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div>
+            <div class="process-name">Стайлфреймы / 3D-концепт</div>
+            <div class="process-desc">Создаём визуальный язык и тестовые рендеры</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div>
+            <div class="process-name">Аниматик</div>
+            <div class="process-desc">Черновая анимация для согласования тайминга</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div>
+            <div class="process-name">Продакшн-анимация</div>
+            <div class="process-desc">Финальная 3D-сцена, текстуры, свет и рендер</div>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">05</div>
+          <div>
+            <div class="process-name">Композитинг и финал</div>
+            <div class="process-desc">Цветокоррекция, VFX, звук и сборка</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КЛИЕНТЫ -->
+  <section class="clients">
+    <div class="container">
+      <div class="clients-list">
+        <div class="client-logo">Министерство по делам молодёжи РТ</div>
+        <div class="client-logo">Минобрнауки РТ</div>
+        <div class="client-logo">Минспорт России</div>
+        <div class="client-logo">Минстрой России</div>
+        <div class="client-logo">Минстрой Татарстан</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">MIRU <span>MEDIA</span></div>
+          <p class="footer-desc">
+            IT и 3D-студия полного цикла. Создаём цифровые продукты, которые работают и впечатляют.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <a href="#about">О нас</a>
+          <a href="#services">Услуги</a>
+          <a href="#cases">Портфолио</a>
+          <a href="#process">Процесс</a>
+        </div>
+        <div class="footer-col">
+          <h4>Соцсети</h4>
+          <a href="https://t.me/" target="_blank">Telegram</a>
+          <a href="https://instagram.com/" target="_blank">Instagram</a>
+          <a href="https://behance.net/" target="_blank">Behance</a>
+        </div>
+        <div>
+          <div class="footer-contact-box">
+            <div class="footer-phone">+7 888 888 88 88</div>
+            <a href="mailto:hello@miru.media" class="footer-email">hello@miru.media</a>
+            <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;">Обсудить проект</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MIRU MEDIA. Все права защищены.</span>
+        <span>Сделано с точностью оригами</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/hero-3d.js"></script>
+  <script src="js/about-3d.js"></script>
+</body>
+</html>
