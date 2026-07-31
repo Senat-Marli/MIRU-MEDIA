@@ -16,6 +16,14 @@ body {
   color: var(--white);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+  font-family:'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
 ::-webkit-scrollbar { width:6px; }
 ::-webkit-scrollbar-track { background:#0a0a0a; }
@@ -81,14 +89,28 @@ body {
   background: linear-gradient(135deg, #fff 0%, #ff6b6b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  .hero-logo {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #fff 0%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4); /* добавь эту строку */
 }
-.hero-subtitle {
+
+}
+ .hero-subtitle {
   font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.85);
   line-height: 1.6;
   margin-bottom: 36px;
-  font-weight: 300;
+  font-weight: 400;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
 }
+
 .hero-buttons {
   display:flex;
   gap: 14px;
