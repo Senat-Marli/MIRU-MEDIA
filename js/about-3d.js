@@ -1,5 +1,4 @@
-
- (function(){
+(function(){
   const canvas = document.getElementById('about-canvas');
   if(!canvas) return;
 
@@ -86,8 +85,4 @@
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth,canvas.clientHeight);
   });
-})();'''
-
-with open('/mnt/agents/output/about-3d.js', 'w', encoding='utf-8') as f:
-    f.write(about_3d_js)
-print("js/about-3d.js сохранён")
+})();
