@@ -1,14 +1,8 @@
-
-# 2. css/style.css
-style_css = ''':root {
+:root {
   --red: #E63946;
   --red-glow: rgba(230,57,70,0.45);
   --black: #030303;
-  --surface: rgba(255,255,255,0.03);
-  --glass: rgba(255,255,255,0.06);
-  --glass-border: rgba(255,255,255,0.08);
   --white: #ffffff;
-  --gray: #888888;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -23,7 +17,6 @@ body {
 ::-webkit-scrollbar-track { background:#0a0a0a; }
 ::-webkit-scrollbar-thumb { background:var(--red); border-radius:3px; }
 
-/* ===== HERO ===== */
 .hero {
   position:relative;
   width:100%;
@@ -94,8 +87,6 @@ body {
   transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
   cursor:pointer;
   border:none;
-  position:relative;
-  overflow:hidden;
 }
 .btn-primary {
   background: var(--red);
@@ -125,7 +116,6 @@ section { position:relative; width:100%; }
   padding: 0 24px;
 }
 
-/* ===== ABOUT ===== */
 .about {
   padding: 140px 0;
   background: #ffffff;
@@ -162,7 +152,6 @@ section { position:relative; width:100%; }
   font-weight: 400;
 }
 
-/* ===== SERVICES ===== */
 .services {
   padding: 120px 0;
   background: #000;
@@ -215,7 +204,6 @@ section { position:relative; width:100%; }
   line-height: 1.5;
 }
 
-/* ===== CASES ===== */
 .cases {
   padding: 100px 0 140px;
   background: #000;
@@ -303,7 +291,6 @@ section { position:relative; width:100%; }
   font-weight: 600;
 }
 
-/* ===== PROCESS ===== */
 .process {
   padding: 140px 0;
   background: linear-gradient(180deg, #000 0%, #080808 100%);
@@ -358,7 +345,6 @@ section { position:relative; width:100%; }
   line-height: 1.5;
 }
 
-/* ===== CLIENTS ===== */
 .clients {
   padding: 80px 0;
   background: #fff;
@@ -382,7 +368,6 @@ section { position:relative; width:100%; }
   opacity: 0.5;
 }
 
-/* ===== FOOTER ===== */
 .footer {
   background: #000;
   padding-top: 100px;
@@ -479,4 +464,3 @@ section { position:relative; width:100%; }
   .btn { width:100%; max-width:320px; justify-content:center; }
   .clients-list { justify-content:center; }
 }
-
