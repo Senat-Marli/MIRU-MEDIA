@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIRU MEDIA — IT & 3D Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,86 +14,99 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
       <h1 class="hero-logo">MIRU MEDIA</h1>
-      <p class="hero-subtitle">
+      <p class="hero-desc">
         Создаём анимацию и визуальные 3D-решения<br>
         для брендов, агентств и продакшн-команд
       </p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Обсудить проект</a>
-        <a href="#cases" class="btn btn-outline">Смотреть шоурил</a>
+        <a href="#contact" class="btn btn-red">Обсудить проект</a>
+        <a href="#cases" class="btn btn-outline">▶ Смотреть шоурил</a>
       </div>
     </div>
   </section>
 
   <!-- О НАС -->
-  <section class="about about-light" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-visual">
-          <canvas id="about-canvas"></canvas>
-        </div>
-        <div class="about-text-wrap">
-          <h2 class="section-title-dark">
-            Мы — креативная студия,<br>
-            специализирующаяся на моушен-<br>
-            дизайне и 3D-визуализации
-          </h2>
-          <p class="about-text-dark">
-            Мы создаём анимацию, статичные 3D-модели и визуальные сцены для рекламных, digital и видеопроектов.
-          </p>
-          <p class="about-text-dark">
-            В нашей работе сочетаются аккуратный дизайн, выверенное движение и понимание реальных продакшн-процессов.
-          </p>
-        </div>
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-visual">
+        <canvas id="about-canvas"></canvas>
+      </div>
+      <div class="about-text">
+        <h2 class="about-title">
+          Мы — креативная студия,<br>
+          специализирующаяся<br>
+          на моушен-дизайне<br>
+          и 3D-визуализации
+        </h2>
+        <p class="about-p">
+          Мы создаём анимацию, статичные 3D-модели и визуальные сцены для рекламных, digital и видеопроектов.
+        </p>
+        <p class="about-p">
+          В нашей работе сочетаются аккуратный дизайн, выверенное движение и понимание реальных продакшн-процессов.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- УСЛУГИ -->
   <section class="services" id="services">
-    <div class="container">
-      <div class="services-layout">
-        <div class="services-left">
-          <h2 class="services-heading">УСЛУГИ</h2>
-          <div class="services-quote">
-            <span class="quote-mark">"</span>
-            <p>Нас вдохновляет точность формы, чистота линий и движение, которое оживляет визуальный образ — как оригами, складывающееся в движение.</p>
-          </div>
-          <a href="#contact" class="btn btn-primary">Обсудить проект</a>
+    <div class="container services-layout">
+      <div class="services-left">
+        <h2 class="services-heading">УСЛУГИ</h2>
+        <div class="services-quote">
+          <span class="quote-mark">"</span>
+          <p>Нас вдохновляет точность формы, чистота линий и движение, которое оживляет визуальный образ — как оригами, складывающееся в динамике.</p>
         </div>
-        <div class="services-right">
-          <div class="service-group">
-            <h3>Моушен-дизайн</h3>
-            <ul>
-              <li>2D и 3D анимация, рекламные ролики</li>
-              <li>Эксплейнеры и анимация UI</li>
-              <li>Графические пакеты и титры</li>
-            </ul>
-          </div>
-          <div class="service-group">
-            <h3>3D-визуализация</h3>
-            <ul>
-              <li>Продуктовая визуализация и рендеры</li>
-              <li>3D-модели для маркетинга</li>
-              <li>Lookdev и разработка визуального стиля</li>
-            </ul>
-          </div>
-          <div class="service-group">
-            <h3>Разработка</h3>
-            <ul>
-              <li>Веб-разработка и веб-приложения</li>
-              <li>Мобильная разработка</li>
-              <li>UI/UX дизайн и дизайн-системы</li>
-            </ul>
-          </div>
-          <div class="service-group">
-            <h3>AI & Автоматизация</h3>
-            <ul>
-              <li>Интеграция нейросетей</li>
-              <li>Генеративный дизайн</li>
-              <li>Автоматизация production-процессов</li>
-            </ul>
-          </div>
+        <a href="#contact" class="btn btn-red">Обсудить проект</a>
+      </div>
+      <div class="services-right">
+        <div class="service-group">
+          <h3>Моушен-дизайн (2D)</h3>
+          <ul>
+            <li>Рекламные и digital-ролики</li>
+            <li>Эксплейнеры</li>
+            <li>Анимация интерфейсов и приложений</li>
+            <li>Графические пакеты и титры</li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>3D-графика</h3>
+          <ul>
+            <li>Визуализация продуктов</li>
+            <li>3D-анимация</li>
+            <li>Статичные 3D-изображения для маркетинга</li>
+            <li>Lookdev и разработка визуального стиля</li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>Веб-разработка</h3>
+          <ul>
+            <li>Сайты и веб-приложения</li>
+            <li>Админ-панели и сложные интерфейсы</li>
+            <li>Интерактивные инсталляции</li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>Мобильная разработка</h3>
+          <ul>
+            <li>Нативные и кроссплатформенные приложения</li>
+            <li>Плавная анимация и отзывчивый UI</li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>UI/UX Дизайн</h3>
+          <ul>
+            <li>Продуманные интерфейсы</li>
+            <li>Прототипирование и дизайн-системы</li>
+          </ul>
+        </div>
+        <div class="service-group">
+          <h3>AI & Автоматизация</h3>
+          <ul>
+            <li>Интеграция нейросетей</li>
+            <li>Генеративный дизайн</li>
+            <li>Автоматизация production-процессов</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -112,117 +124,95 @@
         <button class="filter-btn">ИИ дизайн</button>
       </div>
       <div class="cases-masonry">
-        <div class="case-item case-item-large">
-          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
+        <div class="case-item case-large">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=500&fit=crop" alt="">
+          <span>Название кейса</span>
+        </div>
+        <div class="case-item case-tall">
+          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=400&h=600&fit=crop" alt="">
+          <span>Название кейса</span>
         </div>
         <div class="case-item">
-          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=300&h=400&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
+          <img src="https://images.unsplash.com/photo-1633218388467-539651dcf81a?w=400&h=400&fit=crop" alt="">
+          <span>Название кейса</span>
         </div>
-        <div class="case-item case-item-tall">
-          <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=300&h=500&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
-        </div>
-        <div class="case-item">
-          <img src="https://images.unsplash.com/photo-1633218388467-539651dcf81a?w=300&h=300&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
-        </div>
-        <div class="case-item case-item-wide">
-          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=600&h=300&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
+        <div class="case-item case-wide">
+          <img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=350&fit=crop" alt="">
+          <span>Название кейса</span>
         </div>
         <div class="case-item">
-          <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=300&h=300&fit=crop" alt="Кейс">
-          <span class="case-name">Название кейса</span>
+          <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=400&h=400&fit=crop" alt="">
+          <span>Название кейса</span>
+        </div>
+        <div class="case-item case-tall">
+          <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=400&h=600&fit=crop" alt="">
+          <span>Название кейса</span>
+        </div>
+        <div class="case-item">
+          <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=400&h=400&fit=crop" alt="">
+          <span>Название кейса</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ПРОЦЕСС -->
-  <section class="process process-light" id="process">
-    <div class="container">
-      <div class="process-layout">
-        <div class="process-left">
-          <h2 class="process-heading">КАК МЫ<br>РАБОТАЕМ</h2>
-          <div class="process-quote">
-            <span class="quote-mark">"</span>
-            <p>Понятный процесс.<br>Прогнозируемые сроки.<br>Внимание к деталям.</p>
-          </div>
-        </div>
-        <div class="process-right">
-          <div class="process-step">
-            <span class="step-num">01</span>
-            <span class="step-name">Бриф и референсы</span>
-          </div>
-          <div class="process-step">
-            <span class="step-num">02</span>
-            <span class="step-name">Стайлфреймы / 3D-концепт</span>
-          </div>
-          <div class="process-step">
-            <span class="step-num">03</span>
-            <span class="step-name">Анимация и продакшн</span>
-          </div>
-          <div class="process-step">
-            <span class="step-num">04</span>
-            <span class="step-name">Финальные материалы в нужных форматах</span>
-          </div>
+  <section class="process" id="process">
+    <div class="container process-layout">
+      <div class="process-left">
+        <h2 class="process-heading">КАК МЫ<br>РАБОТАЕМ</h2>
+        <div class="process-quote">
+          <span class="quote-mark">"</span>
+          <p>Понятный процесс.<br>Прогнозируемые сроки.<br>Внимание к деталям.</p>
         </div>
       </div>
-      <div class="clients-logos">
-        <span class="client-logo-text">Министерство по делам молодёжи РТ</span>
-        <span class="client-logo-text">Минобрнауки РТ</span>
-        <span class="client-logo-text">Минспорт России</span>
-        <span class="client-logo-text">Минстрой России</span>
-        <span class="client-logo-text">Минстрой Татарстан</span>
+      <div class="process-right">
+        <div class="process-step"><span class="step-num">01</span><span class="step-name">Бриф и референсы</span></div>
+        <div class="process-step"><span class="step-num">02</span><span class="step-name">Стайлфреймы / 3D-концепт</span></div>
+        <div class="process-step"><span class="step-num">03</span><span class="step-name">Анимация и продакшн</span></div>
+        <div class="process-step"><span class="step-num">04</span><span class="step-name">Финальные материалы в нужных форматах</span></div>
       </div>
+    </div>
+    <div class="clients">
+      <div class="client-logo">Министерство по делам молодёжи РТ</div>
+      <div class="client-logo">Минобрнауки РТ</div>
+      <div class="client-logo">Минспорт России</div>
+      <div class="client-logo">Минстрой России</div>
+      <div class="client-logo">Минстрой Татарстан</div>
     </div>
   </section>
 
   <!-- ФУТЕР -->
-  <footer class="footer footer-red" id="contact">
+  <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-big-logo">MIRU MEDIA</div>
-        <p class="footer-desc">
-          Создаём анимацию и визуальные 3D-решения<br>
-          для брендов, агентств и продакшн-команд
-        </p>
+        <div class="footer-crane-wrap">
+          <canvas id="footer-canvas"></canvas>
+        </div>
+        <div class="footer-nav">
+          <div class="footer-col">
+            <a href="#about">Главная</a>
+            <a href="#cases">Кейсы</a>
+            <a href="#services">Услуги</a>
+            <a href="#process">Процесс</a>
+          </div>
+          <div class="footer-col">
+            <a href="https://t.me/">Telegram</a>
+            <a href="https://instagram.com/">Instagram</a>
+          </div>
+          <div class="footer-col">
+            <span>+7 888 888 88 88</span>
+            <span>example@mail.ru</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-white">Обсудить проект</a>
       </div>
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>Навигация</h4>
-          <a href="#about">О нас</a>
-          <a href="#services">Услуги</a>
-          <a href="#cases">Кейсы</a>
-          <a href="#process">Процесс</a>
-        </div>
-        <div class="footer-col">
-          <h4>Соцсети</h4>
-          <a href="https://t.me/" target="_blank">Telegram</a>
-          <a href="https://instagram.com/" target="_blank">Instagram</a>
-          <a href="https://behance.net/" target="_blank">Behance</a>
-        </div>
-        <div class="footer-col">
-          <h4>Контакты</h4>
-          <a href="tel:+78888888888">+7 888 888 88 88</a>
-          <a href="mailto:hello@miru.media">hello@miru.media</a>
-        </div>
-        <div class="footer-cta">
-          <a href="#" class="btn btn-white">Обсудить проект</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 MIRU MEDIA</span>
-        <span>Сделано с точностью оригами</span>
-      </div>
+      <div class="footer-big-logo">MIRU MEDIA</div>
+      <p class="footer-desc">Создаём анимацию и визуальные 3D-решения<br>для брендов, агентств и продакшн-команд</p>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/hero-3d.js"></script>
   <script src="js/about-3d.js"></script>
 </body>
