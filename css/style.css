@@ -39,10 +39,10 @@ body {
 .hero-glass {
   position:relative;
   z-index:2;
-  background: var(--glass);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  border: 1px solid var(--glass-border);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 28px;
   padding: 56px 48px;
   max-width: 720px;
@@ -54,6 +54,7 @@ body {
     inset 0 1px 0 rgba(255,255,255,0.08);
   animation: float 6s ease-in-out infinite;
 }
+
 @keyframes float {
   0%,100%{ transform: translateY(0); }
   50%{ transform: translateY(-12px); }
