@@ -2,89 +2,60 @@
   const canvas = document.getElementById('about-canvas');
   if(!canvas) return;
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
-  camera.position.set(0, 0, 8);
+  scene.background = new THREE.Color(0x050505);
 
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
+  camera.position.set(0,0,7);
+
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 
-  scene.add(new THREE.AmbientLight(0xffffff,0.6));
-  const d = new THREE.DirectionalLight(0xffffff,1.2); d.position.set(5,5,5); scene.add(d);
-  const f = new THREE.DirectionalLight(0xffcccc,0.4); f.position.set(-5,0,5); scene.add(f);
+  scene.add(new THREE.AmbientLight(0xffffff,0.7));
+  const d = new THREE.DirectionalLight(0xffffff,0.9); d.position.set(5,5,5); scene.add(d);
+  const f = new THREE.DirectionalLight(0xffcccc,0.5); f.position.set(-5,0,5); scene.add(f);
 
   const crane = new THREE.Group();
-  const mat = new THREE.MeshStandardMaterial({color:0xE63946, roughness:0.35, metalness:0.1, side:THREE.DoubleSide, flatShading:true});
+  const mat = new THREE.MeshStandardMaterial({color:0xE63946, roughness:0.45, metalness:0.08, side:THREE.DoubleSide, flatShading:true});
 
-  // Тело — ромб (октаэдр низкой детализации = ромб)
-  const body = new THREE.Mesh(new THREE.OctahedronGeometry(0.7, 0), mat);
-  body.scale.set(1.1, 0.6, 0.7);
-  body.rotation.z = 0.15;
-  crane.add(body);
+  const body = new THREE.Mesh(new THREE.ConeGeometry(0.95,2.1,4), mat);
+  body.rotation.y = Math.PI/4; body.rotation.z = Math.PI/6; crane.add(body);
 
-  // Левое крыло — плоский треугольник с 2 гранями (складка)
-  const wLShape = new THREE.Shape();
-  wLShape.moveTo(0,0);
-  wLShape.lineTo(-2.8, 1.0);
-  wLShape.lineTo(-2.8, -0.4);
-  wLShape.lineTo(0,0);
-  const wLGeo = new THREE.ShapeGeometry(wLShape);
-  const wL = new THREE.Mesh(wLGeo, mat);
-  wL.rotation.x = Math.PI/2;
-  wL.rotation.y = 0.15;
-  wL.position.set(-0.2, 0.15, 0.15);
-  crane.add(wL);
+  const wGeo = new THREE.BufferGeometry();
+  wGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
+    0,0.4,0, -2.1,1.0,-0.4, -2.1,-0.2,0.4,
+    0,0.4,0, -2.1,-0.2,0.4, 0,-0.4,0.2
+  ]),3));
+  wGeo.computeVertexNormals();
+  const wL = new THREE.Mesh(wGeo, mat); crane.add(wL);
+  const wR = wL.clone(); wR.scale.x = -1; crane.add(wR);
 
-  // Правое крыло
-  const wR = wL.clone();
-  wR.scale.x = -1;
-  wR.position.set(0.2, 0.15, 0.15);
-  crane.add(wR);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.11,0.18,0.95,6), mat);
+  neck.position.set(0.48,1.0,0.24); neck.rotation.z = -Math.PI/4; crane.add(neck);
 
-  // Шея
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.14, 0.85, 5), mat);
-  neck.position.set(0.1, 1.05, 0.2);
-  neck.rotation.z = -0.45;
-  neck.rotation.x = -0.25;
-  crane.add(neck);
+  const head = new THREE.Mesh(new THREE.ConeGeometry(0.16,0.48,4), mat);
+  head.position.set(0.72,1.42,0.34); head.rotation.z = -Math.PI/3; crane.add(head);
 
-  // Голова
-  const head = new THREE.Mesh(new THREE.ConeGeometry(0.12, 0.45, 4), mat);
-  head.position.set(0.4, 1.45, 0.4);
-  head.rotation.z = -0.9;
-  head.rotation.x = -0.35;
-  crane.add(head);
-
-  // Хвост — длинный треугольник
-  const tailShape = new THREE.Shape();
-  tailShape.moveTo(0,0);
-  tailShape.lineTo(-2.4, 0.25);
-  tailShape.lineTo(-2.4, -0.55);
-  tailShape.lineTo(0,0);
-  const tailGeo = new THREE.ShapeGeometry(tailShape);
-  const tail = new THREE.Mesh(tailGeo, mat);
-  tail.rotation.x = Math.PI/2;
-  tail.rotation.y = -0.15;
-  tail.position.set(-0.3, -0.15, -0.2);
-  crane.add(tail);
+  const tail = new THREE.Mesh(new THREE.ConeGeometry(0.22,1.2,4), mat);
+  tail.position.set(-0.65,-0.38,-0.14); tail.rotation.z = Math.PI/2.5; crane.add(tail);
 
   scene.add(crane);
 
   let t=0;
   function animate(){
-    requestAnimationFrame(animate); t+=0.008;
-    crane.rotation.y = t*0.4;
+    requestAnimationFrame(animate); t+=0.007;
+    crane.rotation.y = t*0.45;
     crane.position.y = Math.sin(t)*0.1;
-    wL.rotation.z = Math.sin(t*2.2)*0.1;
-    wR.rotation.z = -Math.sin(t*2.2)*0.1;
     renderer.render(scene,camera);
   }
   animate();
 
-  if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+  if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from(crane.position,{x:-3,duration:1.4,ease:"power3.out",scrollTrigger:{trigger:"#about",start:"top 80%",toggleActions:"play none none reverse"}});
-    gsap.from(".about-title,.about-p",{y:40,opacity:0,duration:0.9,stagger:0.15,ease:"power2.out",scrollTrigger:{trigger:"#about",start:"top 75%",toggleActions:"play none none reverse"}});
+    gsap.from(crane.position, {x:-3, duration:1.4, ease:"power3.out",
+      scrollTrigger:{trigger:"#about", start:"top 80%", toggleActions:"play none none reverse"}});
+    gsap.from(".about-title, .about-text, .about-stats", {y:40, opacity:0, duration:0.9, stagger:0.15, ease:"power2.out",
+      scrollTrigger:{trigger:"#about", start:"top 75%", toggleActions:"play none none reverse"}});
   }
 
   window.addEventListener('resize',()=>{
