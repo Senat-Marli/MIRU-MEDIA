@@ -211,10 +211,11 @@ section { position:relative; width:100%; }
 .about-text {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.8); /* было 0.65 */
   margin-bottom: 20px;
   font-weight: 300;
 }
+
 .about-stats {
   display:flex;
   gap: 40px;
@@ -313,9 +314,10 @@ section { position:relative; width:100%; }
 }
 .service-body p {
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.7); /* было 0.5 */
   line-height: 1.6;
 }
+
 
 /* ===== ПОРТФОЛИО ===== */
 .cases {
@@ -415,10 +417,11 @@ section { position:relative; width:100%; }
 }
 .process-desc {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.6); /* было 0.4 */
   margin-top: 6px;
   line-height: 1.5;
 }
+
 
 .clients {
   padding: 80px 0;
