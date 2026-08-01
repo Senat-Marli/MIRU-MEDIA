@@ -6,18 +6,15 @@
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
   camera.position.set(0, 0, 7);
 
-  // Важно: alpha: true — прозрачный фон, видео будет видно сквозь canvas
   const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Свет
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
   const d = new THREE.DirectionalLight(0xffffff, 0.9); d.position.set(5,5,5); scene.add(d);
   const f = new THREE.DirectionalLight(0xffcccc, 0.5); f.position.set(-5,0,5); scene.add(f);
 
-  
-  // --- Система частиц (300 точек) ---
+  // --- Система частиц ---
   const particleCount = 300;
   const pPos = new Float32Array(particleCount * 3);
   const pVel = [];
@@ -44,7 +41,7 @@
   const particles = new THREE.Points(pGeo, pMat);
   scene.add(particles);
 
-  // --- Линии между близкими частицами (эффект созвездия) ---
+  // --- Линии между близкими частицами ---
   const lineMat = new THREE.LineBasicMaterial({color:0xE63946, transparent:true, opacity:0.12});
   let lineMesh = null;
   let frameCount = 0;
@@ -76,8 +73,6 @@
   function animate(){
     requestAnimationFrame(animate); t+=0.007;
 
-    
-    // Частицы движутся
     const arr = pGeo.attributes.position.array;
     for(let i=0; i<particleCount; i++){
       arr[i*3]   += pVel[i].x + Math.sin(t+i)*0.0008;
@@ -88,7 +83,6 @@
     }
     pGeo.attributes.position.needsUpdate = true;
 
-    // Линии обновляем каждые 6 кадров, чтобы не грузить GPU
     frameCount++;
     if(frameCount%6===0) updateLines();
 
@@ -96,13 +90,9 @@
   }
   animate();
 
-  
-
-  // --- Resize ---
   window.addEventListener('resize',()=>{
     camera.aspect = canvas.clientWidth/canvas.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(canvas.clientWidth,canvas.clientHeight);
   });
 })();
-
