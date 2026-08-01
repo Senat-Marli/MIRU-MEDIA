@@ -16,38 +16,7 @@
   const d = new THREE.DirectionalLight(0xffffff, 0.9); d.position.set(5,5,5); scene.add(d);
   const f = new THREE.DirectionalLight(0xffcccc, 0.5); f.position.set(-5,0,5); scene.add(f);
 
-  // --- 3D Журавль (красный оригами) ---
-  // Если твое видео УЖЕ содержит журавля — удали эту секцию, оставь только частицы ниже
-  const crane = new THREE.Group();
-  const mat = new THREE.MeshStandardMaterial({
-    color:0xE63946, roughness:0.45, metalness:0.08,
-    side:THREE.DoubleSide, flatShading:true
-  });
-
-  const body = new THREE.Mesh(new THREE.ConeGeometry(0.95,2.1,4), mat);
-  body.rotation.y = Math.PI/4; body.rotation.z = Math.PI/6; crane.add(body);
-
-  const wGeo = new THREE.BufferGeometry();
-  wGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array([
-    0,0.4,0, -2.1,1.0,-0.4, -2.1,-0.2,0.4,
-    0,0.4,0, -2.1,-0.2,0.4, 0,-0.4,0.2
-  ]),3));
-  wGeo.computeVertexNormals();
-  const wL = new THREE.Mesh(wGeo, mat); crane.add(wL);
-  const wR = wL.clone(); wR.scale.x = -1; crane.add(wR);
-
-  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.11,0.18,0.95,6), mat);
-  neck.position.set(0.48,1.0,0.24); neck.rotation.z = -Math.PI/4; crane.add(neck);
-
-  const head = new THREE.Mesh(new THREE.ConeGeometry(0.16,0.48,4), mat);
-  head.position.set(0.72,1.42,0.34); head.rotation.z = -Math.PI/3; crane.add(head);
-
-  const tail = new THREE.Mesh(new THREE.ConeGeometry(0.22,1.2,4), mat);
-  tail.position.set(-0.65,-0.38,-0.14); tail.rotation.z = Math.PI/2.5; crane.add(tail);
-
-  crane.position.set(0, -0.3, 0);
-  scene.add(crane);
-
+  
   // --- Система частиц (300 точек) ---
   const particleCount = 300;
   const pPos = new Float32Array(particleCount * 3);
@@ -107,10 +76,7 @@
   function animate(){
     requestAnimationFrame(animate); t+=0.007;
 
-    // Журавль плавает и крутится
-    crane.rotation.y = t*0.45;
-    crane.position.y = Math.sin(t*1.2)*0.12 - 0.3;
-
+    
     // Частицы движутся
     const arr = pGeo.attributes.position.array;
     for(let i=0; i<particleCount; i++){
@@ -130,12 +96,7 @@
   }
   animate();
 
-  // --- GSAP: плавное появление при загрузке ---
-  if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(crane.scale, {x:0,y:0,z:0,duration:2,ease:"elastic.out(1,0.5)",
-      scrollTrigger:{trigger:".hero",start:"top 80%",toggleActions:"play none none reverse"}});
-  }
+  
 
   // --- Resize ---
   window.addEventListener('resize',()=>{
