@@ -3,12 +3,12 @@
   if(!canvas) return;
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xffffff);
+  
 
   const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth/canvas.clientHeight, 0.1, 100);
   camera.position.set(0,0,7);
 
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true});
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 
