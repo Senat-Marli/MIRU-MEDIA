@@ -11,10 +11,8 @@
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-  const d = new THREE.DirectionalLight(0xffffff, 0.9); d.position.set(5,5,5); scene.add(d);
-  const f = new THREE.DirectionalLight(0xffcccc, 0.5); f.position.set(-5,0,5); scene.add(f);
 
-  // --- Система частиц ---
+  // --- Частицы ---
   const particleCount = 300;
   const pPos = new Float32Array(particleCount * 3);
   const pVel = [];
@@ -41,7 +39,7 @@
   const particles = new THREE.Points(pGeo, pMat);
   scene.add(particles);
 
-  // --- Линии между близкими частицами ---
+  // --- Линии между частицами ---
   const lineMat = new THREE.LineBasicMaterial({color:0xE63946, transparent:true, opacity:0.12});
   let lineMesh = null;
   let frameCount = 0;
