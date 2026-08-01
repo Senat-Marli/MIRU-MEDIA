@@ -476,9 +476,4 @@ section { position:relative; width:100%; }
   .btn { width:100%; max-width:320px; justify-content:center; }
   .clients-list { justify-content:center; }
 }
-@media (max-width: 768px) {
-  .hero-video {
-    object-position: 60% center;
-  }
-}
 
