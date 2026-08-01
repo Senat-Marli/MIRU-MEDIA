@@ -9,11 +9,21 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  
+<section class="hero">
+  <video class="hero-video" autoplay loop muted playsinline preload="auto">
+    <source src="hero-bg.MP4" type="video/mp4">
+  </video>
+  
+  <!-- Three.js canvas поверх видео -->
+  <canvas id="hero-canvas"></canvas>
+  
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-logo">MIRU MEDIA</h1>
+  </div>
+</section>
 
-  <section class="hero">
-    <video class="hero-video" autoplay loop muted playsinline>
-      <source src="hero-bg.MP4" type="video/mp4">
-    </video>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-logo">MIRU MEDIA</h1>
