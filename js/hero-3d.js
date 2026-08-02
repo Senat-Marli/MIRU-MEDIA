@@ -55,7 +55,8 @@
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
-  particleSystem.position.y = -0.3;   // ← центр пустоты между журавлём и текстом
+  particleSystem.position.y = 0.3;   /* было -0.3 — подняли в центр пустоты */
+
 
 
 
