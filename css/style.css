@@ -469,6 +469,20 @@ section { position:relative; width:100%; }
   .process-item { grid-template-columns: 60px 1fr; }
   .footer-contact-box { text-align:left; }
 }
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%) scale(0.80);
+  object-fit: cover;
+  z-index: 0;
+}
+
+
 @media (max-width: 600px) {
   .cases-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
