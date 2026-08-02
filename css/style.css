@@ -30,17 +30,18 @@ body {
 }
 
 /* Видео с журавлём — вверху */
-.hero-video {
+ .hero-video {
   position: absolute;
-  top:-1%;        /* почти в самый верх */
+  top: -1%;
   left: 50%;
   width: auto;
-  height: 46vh;
-  max-width: 86vw;
+  height: 54vh;        /* было 46vh — увеличили */
+  max-width: 90vw;     /* было 86vw — чуть шире */
   transform: translate(-50%, 0);
   object-fit: contain;
   z-index: 0;
 }
+
 
 
 /* Canvas — на весь Hero, частицы повсюду */
