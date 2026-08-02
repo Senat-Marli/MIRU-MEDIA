@@ -55,7 +55,8 @@
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
-  particleSystem.position.y = -1.6;   // ← взрыв ушёл вниз, в чёрное пространство
+  particleSystem.position.y = -0.3;   // ← центр пустоты между журавлём и текстом
+
 
 
   const cycle = 6.0;
