@@ -469,17 +469,7 @@ section { position:relative; width:100%; }
   .process-item { grid-template-columns: 60px 1fr; }
   .footer-contact-box { text-align:left; }
 }
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: 78vh;        /* ← занимает 78% высоты экрана */
-  max-width: 96vw;     /* ← не вылезает за края по ширине */
-  transform: translate(-50%, -50%);
-  object-fit: contain; /* ← ключ: показывает всё видео без обрезки */
-  z-index: 0;
-}
+
 
 
 @media (max-width: 600px) {
