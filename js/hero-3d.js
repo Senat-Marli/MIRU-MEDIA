@@ -48,10 +48,15 @@
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
   geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-  const material = new THREE.PointsMaterial({
-    size: 0.08, vertexColors: true, transparent: true, opacity: 1,
-    sizeAttenuation: true, blending: THREE.AdditiveBlending, depthWrite: false
-  });
+  // 1. Базовый размер материала
+const material = new THREE.PointsMaterial({
+  size: 0.025,          // ← было 0.05 — в 2 раза меньше
+  vertexColors: true,
+});
+
+// 2. Размер каждой частицы в цикле
+sizes[i] = 0.015 + Math.random()*0.02;   // ← было 0.03 + Math.random()*0.04
+
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
