@@ -36,7 +36,7 @@
     colors[i*3+2] = color.b;
 
     // Начальная позиция — случайная сфера
-    const r = 2.5 + Math.random()*3;
+    const r = 0.8 + Math.random()*1.2;  // ← компактный шар, влезает в центр
     const theta = Math.random()*Math.PI*2;
     const phi = Math.acos(2*Math.random()-1);
     const x = r*Math.sin(phi)*Math.cos(theta);
