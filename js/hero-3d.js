@@ -44,7 +44,7 @@
   const tail = new THREE.Mesh(new THREE.ConeGeometry(0.22, 1.2, 4), mat);
   tail.position.set(-0.65, -0.38, -0.14); tail.rotation.z = Math.PI/2.5; crane.add(tail);
 
-  crane.scale.set(0.55, 0.55, 0.55);   // ← уменьшили масштаб
+  crane.scale.set(0.45, 0.45, 0.45);   // ← уменьшили масштаб
   crane.position.set(0, 1.2, 0);       // ← подняли выше центра
   scene.add(crane);
 
