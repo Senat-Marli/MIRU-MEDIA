@@ -10,12 +10,7 @@
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // ===== ЖУРАВЛЬ ОРИГАМИ =====
-  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-  const dLight = new THREE.DirectionalLight(0xffffff, 0.9);
-  dLight.position.set(5, 5, 5); scene.add(dLight);
-  const fLight = new THREE.DirectionalLight(0xffcccc, 0.5);
-  fLight.position.set(-5, 0, 5); scene.add(fLight);
+  
 
   const crane = new THREE.Group();
   const mat = new THREE.MeshStandardMaterial({
@@ -101,10 +96,7 @@
     craneTime += 0.007;
     const t = globalTime % cycle;
 
-    // Журавль
-    crane.rotation.y = craneTime * 0.45;
-    crane.position.y = 1.2 + Math.sin(craneTime) * 0.1;
-
+    
     // Частицы
     let phase, progress;
     if(t < 1.5){ phase='implode'; progress=t/1.5; }
