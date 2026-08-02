@@ -67,7 +67,9 @@ body {
   line-height: 0.9;
   color: var(--red);
   margin-bottom: 32px;
+  margin-top: 18vh;      /* ← добавь это — отступ сверху */
 }
+
 .hero-subtitle {
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   color: rgba(255,255,255,0.85);
@@ -472,15 +474,16 @@ section { position:relative; width:100%; }
 /* 1. Видео с журавлём — подняли вверх */
 .hero-video {
   position: absolute;
-  top: 26%;              /* было 50% — журавль ушёл вверх */
+  top: 22%;              /* чуть выше */
   left: 50%;
   width: auto;
-  height: 78vh;
-  max-width: 96vw;
+  height: 68vh;          /* было 78vh — уменьшили */
+  max-width: 92vw;       /* ограничили по ширине */
   transform: translate(-50%, -50%);
   object-fit: contain;
   z-index: 0;
 }
+
 
 /* 2. Canvas с частицами — опустили вниз, ниже текста */
 #hero-canvas {
