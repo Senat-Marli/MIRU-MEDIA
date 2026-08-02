@@ -49,12 +49,14 @@
   geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
   const material = new THREE.PointsMaterial({
-    size: 0.05, vertexColors: true, transparent: true, opacity: 1,
+    size: 0.08, vertexColors: true, transparent: true, opacity: 1,
     sizeAttenuation: true, blending: THREE.AdditiveBlending, depthWrite: false
   });
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
+  particleSystem.position.y = -1.6;   // ← взрыв ушёл вниз, в чёрное пространство
+
 
   const cycle = 6.0;
   let globalTime = 0;
