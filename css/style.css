@@ -477,7 +477,7 @@ section { position:relative; width:100%; }
   min-height: 100%;
   width: auto;
   height: auto;
-  transform: translate(-50%, -50%) scale(0.80);
+  transform: translate(-50%, -50%) scale(0.70);
   object-fit: cover;
   z-index: 0;
 }
