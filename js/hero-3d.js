@@ -10,7 +10,6 @@
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // ===== ЧАСТИЦЫ (фейерверк) =====
   const palette = [
     new THREE.Color('#4fc3f7'), new THREE.Color('#29b6f6'),
     new THREE.Color('#e53935'), new THREE.Color('#f06292'),
@@ -28,14 +27,20 @@
   for(let i=0; i<particleCount; i++){
     const color = palette[Math.floor(Math.random()*palette.length)];
     colors[i*3]=color.r; colors[i*3+1]=color.g; colors[i*3+2]=color.b;
-    const r = 2.5 + Math.random()*3;
+
+    // ← РАДИУС ВЗРЫВА (меньше = компактнее шар)
+    const r = 0.8 + Math.random()*1.2;
+
     const theta = Math.random()*Math.PI*2;
     const phi = Math.acos(2*Math.random()-1);
     const x = r*Math.sin(phi)*Math.cos(theta);
     const y = r*Math.sin(phi)*Math.sin(theta);
     const z = r*Math.cos(phi);
     positions[i*3]=x; positions[i*3+1]=y; positions[i*3+2]=z;
-    sizes[i] = 0.03 + Math.random()*0.04;
+
+    // ← РАЗМЕР КАЖДОЙ ЧАСТИЦЫ (меньше = микро-пиксели)
+    sizes[i] = 0.01 + Math.random()*0.015;
+
     const explodeDir = new THREE.Vector3(x,y,z).normalize();
     particlesData.push({
       basePos: new THREE.Vector3(x,y,z), pos: new THREE.Vector3(x,y,z),
@@ -48,22 +53,22 @@
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
   geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-  // 1. Базовый размер материала
-const material = new THREE.PointsMaterial({
-  size: 0.025,          // ← было 0.05 — в 2 раза меньше
-  vertexColors: true,
-});
-
-// 2. Размер каждой частицы в цикле
-sizes[i] = 0.015 + Math.random()*0.02;   // ← было 0.03 + Math.random()*0.04
-
+  const material = new THREE.PointsMaterial({
+    // ← БАЗОВЫЙ РАЗМЕР ВСЕХ ЧАСТИЦ (меньше = мельче)
+    size: 0.02,
+    vertexColors: true,
+    transparent: true,
+    opacity: 1,
+    sizeAttenuation: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  });
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
-  particleSystem.position.y = 0.3;   /* было -0.3 — подняли в центр пустоты */
 
-
-
+  // ← ПОЗИЦИЯ ВЗРЫВА ПО ВЕРТИКАЛИ (меньше = ниже, больше = выше)
+  particleSystem.position.y = 0.3;
 
   const cycle = 6.0;
   let globalTime = 0;
