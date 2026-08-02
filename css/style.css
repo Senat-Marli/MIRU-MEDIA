@@ -32,7 +32,7 @@ body {
 /* Видео с журавлём — вверху */
 .hero-video {
   position: absolute;
-  top: 6%;
+  top: 3%;
   left: 50%;
   width: auto;
   height: 46vh;
