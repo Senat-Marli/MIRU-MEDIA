@@ -28,8 +28,9 @@
     const color = palette[Math.floor(Math.random()*palette.length)];
     colors[i*3]=color.r; colors[i*3+1]=color.g; colors[i*3+2]=color.b;
 
-    // ← РАДИУС ВЗРЫВА (меньше = компактнее шар)
-    const r = 0.8 + Math.random()*1.2;
+       // Радиус взрыва — компактнее
+    const r = 0.5 + Math.random()*0.8;
+
 
     const theta = Math.random()*Math.PI*2;
     const phi = Math.acos(2*Math.random()-1);
