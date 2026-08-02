@@ -55,7 +55,7 @@
 
   const particleSystem = new THREE.Points(geometry, material);
   scene.add(particleSystem);
-  particleSystem.position.y = -1.1;   // ← взрыв ушёл вниз, в чёрное пространство
+  particleSystem.position.y = -1.6;   // ← взрыв ушёл вниз, в чёрное пространство
 
 
   const cycle = 6.0;
