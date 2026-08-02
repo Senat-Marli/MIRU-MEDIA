@@ -10,81 +10,143 @@
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  // Палитра цветов как на LG: синий, голубой, красный, розовый, белый, фиолетовый
+  const palette = [
+    new THREE.Color('#4fc3f7'),
+    new THREE.Color('#29b6f6'),
+    new THREE.Color('#e53935'),
+    new THREE.Color('#f06292'),
+    new THREE.Color('#ffffff'),
+    new THREE.Color('#ab47bc'),
+    new THREE.Color('#7e57c2')
+  ];
 
-  // --- Частицы ---
-  const particleCount = 300;
-  const pPos = new Float32Array(particleCount * 3);
-  const pVel = [];
+  const particleCount = 1800;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+  const sizes = new Float32Array(particleCount);
+
+  const particlesData = [];
 
   for(let i=0; i<particleCount; i++){
-    const r = 2.5 + Math.random()*4;
+    const color = palette[Math.floor(Math.random()*palette.length)];
+    colors[i*3]   = color.r;
+    colors[i*3+1] = color.g;
+    colors[i*3+2] = color.b;
+
+    // Начальная позиция — случайная сфера
+    const r = 2.5 + Math.random()*3;
     const theta = Math.random()*Math.PI*2;
     const phi = Math.acos(2*Math.random()-1);
-    pPos[i*3]   = r*Math.sin(phi)*Math.cos(theta);
-    pPos[i*3+1] = r*Math.sin(phi)*Math.sin(theta);
-    pPos[i*3+2] = r*Math.cos(phi);
-    pVel.push({
-      x:(Math.random()-0.5)*0.003,
-      y:(Math.random()-0.5)*0.003,
-      z:(Math.random()-0.5)*0.003
+    const x = r*Math.sin(phi)*Math.cos(theta);
+    const y = r*Math.sin(phi)*Math.sin(theta);
+    const z = r*Math.cos(phi);
+
+    positions[i*3]   = x;
+    positions[i*3+1] = y;
+    positions[i*3+2] = z;
+
+    sizes[i] = 0.03 + Math.random()*0.04;
+
+    // Вектор взрыва (от центра наружу)
+    const explodeDir = new THREE.Vector3(x,y,z).normalize();
+    particlesData.push({
+      basePos: new THREE.Vector3(x,y,z),
+      pos: new THREE.Vector3(x,y,z),
+      vel: explodeDir.clone().multiplyScalar(0.02 + Math.random()*0.06),
+      rotSpeed: (Math.random()-0.5)*0.02,
+      size: sizes[i]
     });
   }
 
-  const pGeo = new THREE.BufferGeometry();
-  pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  const pMat = new THREE.PointsMaterial({
-    color:0xffffff, size:0.025, transparent:true, opacity:0.7, sizeAttenuation:true
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+  geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+  const material = new THREE.PointsMaterial({
+    size: 0.05,
+    vertexColors: true,
+    transparent: true,
+    opacity: 1,
+    sizeAttenuation: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
   });
-  const particles = new THREE.Points(pGeo, pMat);
-  scene.add(particles);
 
-  // --- Линии между частицами ---
-  const lineMat = new THREE.LineBasicMaterial({color:0xE63946, transparent:true, opacity:0.12});
-  let lineMesh = null;
-  let frameCount = 0;
+  const particleSystem = new THREE.Points(geometry, material);
+  scene.add(particleSystem);
 
-  function updateLines(){
-    if(lineMesh){ scene.remove(lineMesh); lineMesh.geometry.dispose(); }
-    const positions = [];
-    const arr = pGeo.attributes.position.array;
-    const maxDist = 1.0;
-    for(let i=0; i<particleCount; i++){
-      for(let j=i+1; j<particleCount; j++){
-        const dx = arr[i*3]-arr[j*3], dy = arr[i*3+1]-arr[j*3+1], dz = arr[i*3+2]-arr[j*3+2];
-        if(dx*dx + dy*dy + dz*dz < maxDist*maxDist){
-          positions.push(arr[i*3], arr[i*3+1], arr[i*3+2]);
-          positions.push(arr[j*3], arr[j*3+1], arr[j*3+2]);
-        }
-      }
-    }
-    if(positions.length){
-      const lGeo = new THREE.BufferGeometry();
-      lGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-      lineMesh = new THREE.LineSegments(lGeo, lineMat);
-      scene.add(lineMesh);
-    }
-  }
+  // Цикл анимации: Сжатие → Взрыв → Разлет → Затухание → Рестарт
+  const cycle = 6.0; // секунд на полный цикл
+  let globalTime = 0;
 
-  // --- Анимация ---
-  let t=0;
   function animate(){
-    requestAnimationFrame(animate); t+=0.007;
+    requestAnimationFrame(animate);
+    globalTime += 0.016;
+    const t = globalTime % cycle; // текущая фаза в цикле
 
-    const arr = pGeo.attributes.position.array;
-    for(let i=0; i<particleCount; i++){
-      arr[i*3]   += pVel[i].x + Math.sin(t+i)*0.0008;
-      arr[i*3+1] += pVel[i].y + Math.cos(t+i*0.7)*0.0008;
-      arr[i*3+2] += pVel[i].z;
-      const dist = Math.sqrt(arr[i*3]**2 + arr[i*3+1]**2 + arr[i*3+2]**2);
-      if(dist>7){ const s=2.5/dist; arr[i*3]*=s; arr[i*3+1]*=s; arr[i*3+2]*=s; }
+    const posAttr = geometry.attributes.position;
+    const arr = posAttr.array;
+
+    // Фаза 0-1.5с: Сжатие в плотный шар (притяжение к центру)
+    // Фаза 1.5-3.5с: Взрыв (разлет с ускорением)
+    // Фаза 3.5-6с: Затухание (разлет продолжается, opacity падает)
+
+    let phase;
+    let progress;
+
+    if(t < 1.5){
+      phase = 'implode';
+      progress = t / 1.5; // 0..1
+    } else if(t < 3.5){
+      phase = 'explode';
+      progress = (t - 1.5) / 2.0; // 0..1
+    } else {
+      phase = 'fade';
+      progress = (t - 3.5) / 2.5; // 0..1
     }
-    pGeo.attributes.position.needsUpdate = true;
 
-    frameCount++;
-    if(frameCount%6===0) updateLines();
+    for(let i=0; i<particleCount; i++){
+      const d = particlesData[i];
 
-    renderer.render(scene,camera);
+      if(phase === 'implode'){
+        // Притягиваем к центру, образуя плотный шар радиусом ~0.4
+        const target = d.basePos.clone().normalize().multiplyScalar(0.3 + Math.random()*0.3);
+        const current = d.pos;
+        current.lerp(target, 0.08);
+      }
+      else if(phase === 'explode'){
+        // Разлетаемся от центра
+        d.pos.add(d.vel);
+        d.vel.multiplyScalar(1.02); // ускорение
+      }
+      else {
+        // Продолжаем разлет + трение
+        d.pos.add(d.vel);
+        d.vel.multiplyScalar(0.98);
+      }
+
+      arr[i*3]   = d.pos.x;
+      arr[i*3+1] = d.pos.y;
+      arr[i*3+2] = d.pos.z;
+    }
+
+    posAttr.needsUpdate = true;
+
+    // Opacity: 1 → 1 → 0
+    if(phase === 'fade'){
+      material.opacity = Math.max(0, 1 - progress*1.2);
+    } else {
+      material.opacity = 1;
+    }
+
+    // Плавное появление в начале цикла
+    if(t < 0.3){
+      material.opacity = Math.min(1, t / 0.3);
+    }
+
+    renderer.render(scene, camera);
   }
   animate();
 
