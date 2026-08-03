@@ -363,5 +363,21 @@
   animate();
 })();
 </script>
+<script>
+(function(){
+  const video = document.querySelector('.hero-video');
+  if(!video) return;
+  
+  // Принудительный запуск для iOS Safari
+  video.play().catch(function(e){
+    console.log('Autoplay blocked:', e);
+  });
+  
+  // Повторная попытка после загрузки метаданных
+  video.addEventListener('loadedmetadata', function(){
+    video.play().catch(function(){});
+  });
+})();
+</script>
 </body>
 </html>
