@@ -32,6 +32,19 @@ body {
   transform: translateZ(0);
 }
 
+/* Скрываем нативные контролы iOS */
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-overlay-play-button,
+.hero-video::-webkit-media-controls-start-playback-button,
+.hero-video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Гарантированный запуск — убираем постер/плейсхолдер */
+.hero-video {
+  -webkit-tap-highlight-color: transparent;
+}
 
 .hero-video {
   position: absolute;
