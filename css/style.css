@@ -152,10 +152,10 @@ section { position:relative; width:100%; }
 
 .about-visual {
   position: relative;
-  height: 400px;        /* ← было 280px, стало 400px */
+  height: 480px;        /* ← было 280px, стало 400px */
   overflow: hidden;
   background: transparent;
-  max-width: 640px;     /* ← было 480px, стало 640px */
+  max-width: 720px;     /* ← было 480px, стало 640px */
   margin: 0 auto;
 }
 
