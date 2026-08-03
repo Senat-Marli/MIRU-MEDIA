@@ -20,28 +20,33 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: auto;           /* ← вместо 100vh */
-  min-height: 100vh;      /* ← минимум на весь экран, но не больше */
+  height: 100vh;                    /* ← фиксированная высота */
+  min-height: -webkit-fill-available; /* ← iOS fix */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background: #030303;
-  padding-bottom: 6vh;    /* ← небольшой отступ после кнопок */
+  -webkit-transform: translateZ(0);   /* ← GPU compositing, убирает мерцание */
+  transform: translateZ(0);
 }
+
 
 .hero-video {
   position: absolute;
-  top: -12%;           /* ← было -1%, подняли выше */
+  top: -4%;                         /* ← чуть ниже */
   left: 50%;
   width: auto;
-  height: 56vh;       /* ← было 54vh, чуть больше */
+  height: 52vh;                     /* ← чуть меньше */
   max-width: 90vw;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0) translateZ(0);  /* ← GPU fix */
+  -webkit-transform: translate(-50%, 0) translateZ(0);
   object-fit: contain;
   z-index: 0;
+  will-change: transform;           /* ← оптимизация рендера */
 }
+
 
 
 
@@ -57,9 +62,13 @@ body {
   text-align: center;
   width: 92%;
   max-width: 1000px;
-  margin-top: calc(20vh +  1.8cm);   /* ← было 22vh, подняли на 2vh */
-  padding-bottom: 0;                /* ← было 2vh, убрали */
+  margin-top: 0;                    /* ← убрали */
+  padding-top: calc(18vh + 1.8cm);  /* ← вместо margin-top */
+  padding-bottom: 2vh;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
+
 
 
 
@@ -94,10 +103,14 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50vh;
+  height: 45vh;                     /* ← чуть меньше */
   z-index: 1;
   pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
+
 
 
 .hero-buttons {
