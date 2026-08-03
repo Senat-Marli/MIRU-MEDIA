@@ -146,36 +146,46 @@ section { position:relative; width:100%; }
   color: #000;
 }
 .about-grid {
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items:center;
+  display: none;   /* ← старый grid больше не нужен */
 }
+
 .about-visual {
-  position:relative;
-  height: 520px;
-  overflow:hidden;
+  position: relative;
+  height: 320px;        /* ← уменьшили высоту */
+  overflow: hidden;
   background: transparent;
+  max-width: 480px;     /* ← ограничили ширину */
+  margin: 0 auto;       /* ← по центру */
 }
+
 #about-video {
   width:100%; height:100%;
   display:block;
   object-fit: contain;
 }
-.about-text-wrap h2 {
+.about-title {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 28px;
+  margin-bottom: 48px;
   color: #000;
+  text-align: center;
 }
-.about-text-wrap p {
-  font-size: 1.05rem;
+.about-text-bottom {
+  text-align: center;
+  max-width: 640px;
+  margin: 40px auto 0;
+}
+
+.about-text-bottom p {
+  font-size: 0.95rem;       /* ← маленькие буквы */
   line-height: 1.7;
-  color: rgba(0,0,0,0.65);
-  margin-bottom: 20px;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 16px;
   font-weight: 400;
 }
+
+
 
 .services {
   padding: 120px 0;
