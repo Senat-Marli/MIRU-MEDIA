@@ -35,7 +35,7 @@ body {
 
 .hero-video {
   position: absolute;
-  top: -6%;                         /* ← чуть ниже */
+  top: -12%;                         /* ← чуть ниже */
   left: 50%;
   width: auto;
   height: 52vh;                     /* ← чуть меньше */
