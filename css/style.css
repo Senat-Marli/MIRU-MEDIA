@@ -30,15 +30,16 @@ body {
 }
 .hero-video {
   position: absolute;
-  top: -1%;
+  top: -6%;           /* ← было -1%, подняли выше */
   left: 50%;
   width: auto;
-  height: 54vh;
+  height: 56vh;       /* ← было 54vh, чуть больше */
   max-width: 90vw;
   transform: translate(-50%, 0);
   object-fit: contain;
   z-index: 0;
 }
+
 
 
 .hero-overlay {
@@ -53,9 +54,10 @@ body {
   text-align: center;
   width: 92%;
   max-width: 1000px;
-  margin-top: calc(22vh + 2.5cm);   /* ← +2.5 см вниз */
-  padding-bottom: 2vh;
+  margin-top: calc(20vh + 2.5cm);   /* ← было 22vh, подняли на 2vh */
+  padding-bottom: 0;                /* ← было 2vh, убрали */
 }
+
 
 
 
@@ -67,8 +69,9 @@ body {
   letter-spacing: -0.03em;
   line-height: 0.9;
   color: var(--red);
-  margin-bottom: 20px;   /* ← было 32px */
+  margin-bottom: 16px;   /* ← было 20px */
 }
+
 
 
 
@@ -76,12 +79,13 @@ body {
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
   color: rgba(255,255,255,0.85);
   line-height: 1.6;
-  margin-bottom: 28px;   /* ← было 40px */
+  margin-bottom: 24px;   /* ← было 28px */
   font-weight: 400;
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 
 .hero-buttons {
