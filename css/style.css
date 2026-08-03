@@ -53,9 +53,10 @@ body {
   text-align: center;
   width: 92%;
   max-width: 1000px;
-  margin-top: 22vh;      /* ← увеличили — контент ниже */
+  margin-top: calc(22vh + 1.5cm);   /* ← +1.5 см вниз */
   padding-bottom: 2vh;
 }
+
 
 
 
