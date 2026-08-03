@@ -20,14 +20,17 @@ body {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: auto;           /* ← вместо 100vh */
+  min-height: 100vh;      /* ← минимум на весь экран, но не больше */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* прижали всё к верху */
+  justify-content: flex-start;
   background: #030303;
+  padding-bottom: 6vh;    /* ← небольшой отступ после кнопок */
 }
+
 .hero-video {
   position: absolute;
   top: -10%;           /* ← было -1%, подняли выше */
