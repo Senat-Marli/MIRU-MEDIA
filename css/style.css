@@ -152,12 +152,13 @@ section { position:relative; width:100%; }
 
 .about-visual {
   position: relative;
-  height: 280px;           /* ← чуть меньше */
+  height: 400px;        /* ← было 280px, стало 400px */
   overflow: hidden;
   background: transparent;
-  max-width: 480px;
+  max-width: 640px;     /* ← было 480px, стало 640px */
   margin: 0 auto;
 }
+
 
 
 #about-video {
