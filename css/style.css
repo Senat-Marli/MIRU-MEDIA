@@ -57,7 +57,7 @@ body {
   text-align: center;
   width: 92%;
   max-width: 1000px;
-  margin-top: calc(20vh +  2cm);   /* ← было 22vh, подняли на 2vh */
+  margin-top: calc(20vh +  1.8cm);   /* ← было 22vh, подняли на 2vh */
   padding-bottom: 0;                /* ← было 2vh, убрали */
 }
 
