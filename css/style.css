@@ -141,22 +141,24 @@ section { position:relative; width:100%; }
 }
 
 .about {
-  padding: 140px 0;
+  padding: 60px 0 100px;   /* ← сверху 60px вместо 140px */
   background: #ffffff;
   color: #000;
 }
+
 .about-grid {
   display: none;   /* ← старый grid больше не нужен */
 }
 
 .about-visual {
   position: relative;
-  height: 320px;        /* ← уменьшили высоту */
+  height: 280px;           /* ← чуть меньше */
   overflow: hidden;
   background: transparent;
-  max-width: 480px;     /* ← ограничили ширину */
-  margin: 0 auto;       /* ← по центру */
+  max-width: 480px;
+  margin: 0 auto;
 }
+
 
 #about-video {
   width:100%; height:100%;
@@ -167,15 +169,17 @@ section { position:relative; width:100%; }
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 48px;
+  margin-bottom: 2.5cm;    /* ← ровно 2.5 см до птички */
   color: #000;
   text-align: center;
 }
+
 .about-text-bottom {
   text-align: center;
   max-width: 640px;
-  margin: 40px auto 0;
+  margin: 2.5cm auto 0;    /* ← ровно 2.5 см от птички */
 }
+
 
 .about-text-bottom p {
   font-size: 0.95rem;       /* ← маленькие буквы */
